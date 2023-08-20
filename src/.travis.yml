@@ -1,5 +1,6 @@
 sudo: required
 language: generic
+
 services:
   - docker
 
@@ -7,4 +8,4 @@ before_install:
   - docker build -t sunicho/dockcer-react -f Dockderfile.dev .
 
 script:
-  - docker run sunicho/docker-react npm run test -- --coverage
+  - docker run -e CI=true sunicho/docker-react npm run test
